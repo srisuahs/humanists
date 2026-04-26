@@ -110,7 +110,7 @@ This launches a Gradio web interface.
 2. Click **Start Simulation**
 3. View detections and AIS-aligned positions
 
-```
+
 
 
 ### Hackathon Q&A
