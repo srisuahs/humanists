@@ -135,7 +135,7 @@ We built an edge-ready detection pipeline using a **TerraMind-Tiny** backbone fi
 We measured performance against a YOLOv8m baseline. Our model is **3x smaller** in parameters and achieved a **10.6% improvement in accuracy** (73.6% vs 63%), while maintaining significantly higher throughput for real-time processing.
 
 **What's the orbital-compute story?**
-This model is designed for **Space Data Center** integration. With a footprint of only **~21MB** and a throughput of **2,151 samples/sec**, it can process massive SAR swaths in real-time on-board the satellite. This fits within the strict power and memory limits of orbital edge hardware (like the NVIDIA Orin Nano), allowing the satellite to downlink only the detected ship coordinates rather than wasting bandwidth on empty ocean data.
+This model is designed for **Space Data Center** integration. With a footprint of only **~21MB** and a throughput of **88 samples/sec**, it can process massive SAR swaths in real-time on-board the satellite. This fits within the strict power and memory limits of orbital edge hardware (like the NVIDIA Orin Nano), allowing the satellite to downlink only the detected ship coordinates rather than wasting bandwidth on empty ocean data.
 
 **What doesn't work yet?**
 Honesty is key: We currently do not have public, real-time access to AIS data streams, so the "verification" step relies on historical or purchased snapshots. Furthermore, the model's accuracy can still fluctuate in high-sea-state conditions (extreme storms) where wave clutter can occasionally mirror metal backscatter.
