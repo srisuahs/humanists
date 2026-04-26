@@ -11,9 +11,9 @@ Our model identifies these ships via satellite SAR imagery and verifies them aga
 
 ### About the Dataset
 We utilize the **SARFish dataset** for high-resolution radar imagery.
-* **Imagery Sources:** [SARFish Sample (HuggingFace)](https://huggingface.co/datasets/ConnorLuckettDSTG/SARFishSample/tree/main/GRD/validation) and the [Full SARFish Dataset (HuggingFace)](https://huggingface.co/datasets/ConnorLuckettDSTG/SARFish/tree/main/GRD).
+* **Imagery Sources:** [Full SARFish Dataset (HuggingFace)](https://huggingface.co/datasets/ConnorLuckettDSTG/SARFish/tree/main/GRD).
 * **Labels:** Ground truth labels are sourced from [John-J-Tanner's SARFish Repository](https://github.com/John-J-Tanner/Extract-SARFish-Data/tree/main/Labels).
-* **Training Strategy:** To maximize training density from single scenes, we selected a validation scene for training. After processing through our custom **dataset_chopper.py** balancer, the resulting set contains **491 positive** and **226 negative** training examples.
+* **Training Strategy:** After processing through our custom **dataset_chopper.py** to combat data imbalance, the resulting set contains **62 positive** and **62 negative** training examples.
 * **Testing:** Benchmarking was performed on a random unseen scene from the complete SARFish GRD repository.
 * **Modalities:** * **VH (Vertical-Horizontal):** Essential for metal-on-water detection; metal ship hulls create a high cross-polarized return against the dark ocean.
     * **VV (Vertical-Vertical):** Provides sea state context; helpful for filtering out waves and surface roughness that might otherwise cause false positives.
@@ -56,6 +56,16 @@ Our baseline is the **YOLOv8m** model, comparable in complexity and size to our 
 | **FLOPs / Sample** | **~1.066 G** | 2.565 G |
 | **Batch Inference Time** | **92.96 ms** | 122.41 ms |
 | **Throughput (samples/sec)** | **2151.4** | 1633.8 |
+
+The GPU that has been used for testing is **Nvidia RTX 5070ti mobile** and that is translated to a **entry-level NVIDIA Jetson nano** like so:
+
+472 GFLOPs / 1.066 GFLOPs per frame = ~442 FPS
+
+but In actual edge-deployment engineering, we estimate that real-world AI inference runs at about 15% to 20% efficiency of the theoretical max.
+
+442 FPS * 0.15 = ~66 FPS
+
+442 FPS * 0.20 = ~88 FPS
 
 **Important FLOPs Note:** TerraMind FLOPs were calculated with unsupported operator warnings, making this a **lower-bound estimate**. It is useful for relative comparison but is not an absolute hardware count.
 
