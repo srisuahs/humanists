@@ -45,6 +45,7 @@ We utilize the **SARFish dataset** for high-resolution radar imagery.
 
 ---
 
+
 ### Metrics and Numbers
 Our baseline is the **YOLOv8m** model, comparable in complexity and size to our fine-tuned TerraMind-Tiny model.
 
