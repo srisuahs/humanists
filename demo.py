@@ -7,6 +7,7 @@ import random
 
 from infer import TerraMindTinyShipClassifier, apply_lora
 
+
 # ---------------- CONFIG ----------------
 DATA_DIR = Path("data/processed_val_chips")
 MODEL_PATH = "terramind_tiny_ship_classifier.pth"
