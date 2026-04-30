@@ -1,3 +1,4 @@
+This project was developed for and won at the 418 Hacakathon
 # TerraMind-Tiny: Orbital Ship Identification & AIS Verification
 
 ### The Problem
